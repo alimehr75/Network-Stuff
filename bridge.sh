@@ -17,4 +17,6 @@ sudo nmcli connection modify ${BR_NAME} ipv4.dns ${DNS1} +ipv4.dns ${DNS2}
 sudo nmcli connection delete ${BR_INT}
 sudo nmcli connection add type bridge-slave autoconnect yes con-name ${BR_INT} ifname ${BR_INT} master ${BR_NAME}
 sudo nmcli connection up br10
+# For getting ip from dhcp it needs to connection reload 
+sudo nmcli connection reload
 sudo nmcli connection show 
